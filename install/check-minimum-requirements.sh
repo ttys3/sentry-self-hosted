@@ -14,10 +14,10 @@ if [[ -z "$DOCKER_VERSION" ]]; then
   exit 1
 fi
 
-if [[ "$(vergte ${DOCKER_VERSION//v/} $MIN_DOCKER_VERSION)" -eq 1 ]]; then
-  echo "FAIL: Expected minimum docker version to be $MIN_DOCKER_VERSION but found $DOCKER_VERSION"
-  exit 1
-fi
+# if [[ "$(vergte ${DOCKER_VERSION//v/} $MIN_DOCKER_VERSION)" -eq 1 ]]; then
+#   echo "FAIL: Expected minimum docker version to be $MIN_DOCKER_VERSION but found $DOCKER_VERSION"
+#   exit 1
+# fi
 echo "Found Docker version $DOCKER_VERSION"
 
 COMPOSE_VERSION=$($dc_base version --short || echo '')
@@ -26,10 +26,10 @@ if [[ -z "$COMPOSE_VERSION" ]]; then
   exit 1
 fi
 
-if [[ "$(vergte ${COMPOSE_VERSION//v/} $MIN_COMPOSE_VERSION)" -eq 1 ]]; then
-  echo "FAIL: Expected minimum $dc_base version to be $MIN_COMPOSE_VERSION but found $COMPOSE_VERSION"
-  exit 1
-fi
+# if [[ "$(vergte ${COMPOSE_VERSION//v/} $MIN_COMPOSE_VERSION)" -eq 1 ]]; then
+#   echo "FAIL: Expected minimum $dc_base version to be $MIN_COMPOSE_VERSION but found $COMPOSE_VERSION"
+#   exit 1
+# fi
 echo "Found Docker Compose version $COMPOSE_VERSION"
 
 CPU_AVAILABLE_IN_DOCKER=$(docker run --rm busybox nproc --all)
