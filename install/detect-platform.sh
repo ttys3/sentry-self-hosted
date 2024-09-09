@@ -17,15 +17,19 @@ if ! command -v docker &>/dev/null; then
   exit 1
 fi
 
-export DOCKER_ARCH=$(docker info --format '{{.Architecture}}')
-if [[ "$DOCKER_ARCH" = "x86_64" ]]; then
-  export DOCKER_PLATFORM="linux/amd64"
-elif [[ "$DOCKER_ARCH" = "aarch64" ]]; then
-  export DOCKER_PLATFORM="linux/arm64"
-else
-  echo "FAIL: Unsupported docker architecture $DOCKER_ARCH."
-  exit 1
-fi
+# export DOCKER_ARCH=$(docker info --format '{{.Architecture}}')
+# if [[ "$DOCKER_ARCH" = "x86_64" ]]; then
+#   export DOCKER_PLATFORM="linux/amd64"
+# elif [[ "$DOCKER_ARCH" = "aarch64" ]]; then
+#   export DOCKER_PLATFORM="linux/arm64"
+# else
+#   echo "FAIL: Unsupported docker architecture $DOCKER_ARCH."
+#   exit 1
+# fi
+
+export DOCKER_ARCH=x86_64
+export DOCKER_PLATFORM="linux/amd64"
+
 echo "Detected Docker platform is $DOCKER_PLATFORM"
 
 echo "${_endgroup}"
