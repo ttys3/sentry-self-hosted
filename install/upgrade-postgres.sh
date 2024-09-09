@@ -10,7 +10,7 @@ if [[ -n "$(docker volume ls -q --filter name=sentry-postgres)" && "$(docker run
 
   # Get rid of the old volume as we'll rename the new one to that
   docker volume rm sentry-postgres
-  docker volume create --name sentry-postgres
+  docker volume create  sentry-postgres
   # There's no rename volume in Docker so copy the contents from old to new name
   # Also append the `host all all all trust` line as `tianon/postgres-upgrade:9.6-to-14`
   # doesn't do that automatically.
