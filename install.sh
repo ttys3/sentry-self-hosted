@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -eE
 
+export REPORT_SELF_HOSTED_ISSUES=0
+
 # Pre-pre-flight? 🤷
 if [[ -n "$MSYSTEM" ]]; then
   echo "Seems like you are using an MSYS2-based system (such as Git Bash) which is not supported. Please use WSL instead."
