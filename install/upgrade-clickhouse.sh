@@ -3,7 +3,7 @@ echo "${_group}Upgrading Clickhouse ..."
 function wait_for_clickhouse() {
   # Wait for clickhouse
   RETRIES=30
-  until $dc ps clickhouse | grep 'healthy' || [ $RETRIES -eq 0 ]; do
+  until $dc ps | grep clickhouse | grep 'healthy' || [ $RETRIES -eq 0 ]; do
     echo "Waiting for clickhouse server, $((RETRIES--)) remaining attempts..."
     sleep 1
   done
