@@ -31,3 +31,22 @@ docker.io/getsentry/relay:24.8.0
                          "Hard": 204806
                     }
                ],
+
+
+```
+mkdir -p /var/lib/sentry/sentry-smtp 
+mkdir -p /var/lib/sentry/sentry-smtp-log
+mkdir /var/lib/sentry/sentry-redis
+mkdir /var/lib/sentry/sentry-postgres
+mkdir /var/lib/sentry/sentry-kafka
+mkdir /var/lib/sentry/sentry-kafka-log
+mkdir /var/lib/sentry/sentry-secrets
+mkdir /var/lib/sentry/sentry-clickhouse
+mkdir /var/lib/sentry/sentry-clickhouse-log
+mkdir /var/lib/sentry/sentry-data
+mkdir /var/lib/sentry/geoip
+mkdir /var/lib/sentry/sentry-nginx-cache
+```
+
+
+$HOME/.config/containers/registries.conf.d/001-my-shortnames.conf
